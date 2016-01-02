@@ -17,6 +17,12 @@
         android:icon="@drawable/ic_launcher"
         android:persistent="true">
 
+        <receiver android:name=".BannerActivity$BannerReceiver">
+            <intent-filter>
+                <action android:name="jp.co.cyberagent.stf.ACTION_BANNER_SHOW"/>
+            </intent-filter>
+        </receiver>
+
         <service android:name=".Service"
             android:exported="true">
             <intent-filter>
@@ -34,6 +40,18 @@
             android:excludeFromRecents="true">
             <intent-filter>
                 <action android:name="jp.co.cyberagent.stf.ACTION_IDENTIFY"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".BannerActivity"
+            android:exported="true"
+            android:finishOnTaskLaunch="true"
+            android:noHistory="true"
+            android:stateNotNeeded="true"
+            android:excludeFromRecents="true">
+            <intent-filter>
+                <action android:name="jp.co.cyberagent.stf.ACTION_BANNER"/>
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
